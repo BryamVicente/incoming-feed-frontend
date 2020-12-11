@@ -1,16 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import ArticlePage from './Containers/ArticlePage'
-import { Logo } from './Components/Logo';
 
+import React from 'react'
+import { BrowserRouter} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <Logo/>
-      <ArticlePage   />
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <>
+        <BrowserRouter>
+        
+          <ArticlePage />
+        </BrowserRouter>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const TopNav = () => {
+const TopNav = () => {
     return (
         <div>
             
         </div>
     )
 }
+
+export default TopNav
