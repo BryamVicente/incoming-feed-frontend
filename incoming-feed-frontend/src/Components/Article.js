@@ -25,7 +25,7 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
                 <Card.Content>
                     <Card.Header>{this.props.article.title}</Card.Header>
-
+ 
                     <Card.Meta>
                         <span>{this.props.article.author}</span>
                     </Card.Meta>
