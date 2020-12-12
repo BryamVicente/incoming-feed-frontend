@@ -21,13 +21,16 @@ class ArticleContainer extends Component {
         return filteredArray.map(article => <Article key={article.id} article={article}/>)
     }
 
+    searchHandler = (e) => {
+        this.setState({ searchValue: e.target.value})
+    }
+
     render() {
-        console.log(this.props)
         return (
             <>
                 <FilterByCategory/>
+                <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} /> 
                 {this.renderArticles()}
-                <Search /> 
             </>
         )
     }

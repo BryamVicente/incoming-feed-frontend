@@ -9,8 +9,6 @@ import {  Icon, Button, Menu} from 'semantic-ui-react'
 
 class ArticlePage extends Component {
 
-   
-
     render() {
         return (
             <>
