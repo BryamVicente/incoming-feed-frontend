@@ -4,10 +4,12 @@ import ArticleContainer from './ArticleContainer'
 import Logo from '../Components/Logo'
 import Login from '../Auth/Login'
 import Signup from '../Auth/Signup'
-import { NavLink, Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
 import {  Icon, Button, Menu} from 'semantic-ui-react'
 
 class ArticlePage extends Component {
+
+   
 
     render() {
         return (

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
 const defaultState = {
-    api: []
+    articles: []
 }
 
-function apiReducer( state = defaultState.api, action) {
+function articleReducer( state = defaultState.articles, action) {
     switch (action.type) {
         case "FETCH_ARTICLES":
             return action.payload
@@ -14,7 +14,7 @@ function apiReducer( state = defaultState.api, action) {
 }
 
 const rootReducer = combineReducers({
-    api: apiReducer
+    articles: articleReducer
 })
 
 export default rootReducer
