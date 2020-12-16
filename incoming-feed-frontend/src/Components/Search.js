@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Input } from 'semantic-ui-react'
 
-export default class Search extends Component {
-    render() {
-        // console.log(this.props)
+const Search = (props) => {
+    
         return (
             <div>
-                <Input icon="search" type="text" placeholder="Search by title.." value={this.props.searchValue} onChange={this.props.searchHandler} />
+                <Input icon="search" type="text" placeholder="Search by title.." value={props.searchValue} onChange={props.searchHandler} />
             </div>
         )
-    }
 }
+
+export default Search;
