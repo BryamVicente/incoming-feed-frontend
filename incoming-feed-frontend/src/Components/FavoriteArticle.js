@@ -5,14 +5,22 @@ import EditReviewForm from './EditReviewForm'
 // import { addingArticleToList } from '../redux/action'
 
 
-
-
 class FavoriteArticle extends React.Component {
 
     state = {
-        display: false
+        display: false,
         // review: this.props.favArt.review
+        article_id: this.props.favArt.article_id,
+        articles: this.props.articles,
+        current_article: {}
     }
+
+    // searchingArticles = () => {
+    //     let articleSearch = this.props.articles.filter(article=> article.id === this.state.articles_id)
+    //     this.setState({current_article: articleSearch})
+        
+    // }
+
 
     localDeleteHandler = () => {
         this.props.deleteFavoriteArticletHandler(this.props.favArt)
@@ -24,16 +32,20 @@ class FavoriteArticle extends React.Component {
     }
 
     render(){
-        console.log(this.props)
+        // console.log(this.props.favorites)
+        // console.log(this.props)
+    //     console.log(this.state)
+    //    console.log( this.props.favArt)
         return (
             <Card>
         
                 <Card>
-                    <img className="article-image" src={this.props.favArt.article.urlToImage} />
+                    <img className= "article-image" src={this.props.favArt.article.urlToImage} />
                 </Card>
             
     
             <Card.Content>
+                
                 <Card.Header>{this.props.favArt.article.title}</Card.Header>
     
                 <Card.Meta>

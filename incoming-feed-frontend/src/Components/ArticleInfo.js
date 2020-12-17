@@ -11,6 +11,7 @@ class ArticleInfo extends Component {
         // this.props.addingArticlesToFav(this.props.article)
         console.log("clicked to show ")
         this.setState({ switch: true})
+        this.props.favoriteClickHandler(this.props.article)
     }
 
     render() {

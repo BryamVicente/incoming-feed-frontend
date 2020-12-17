@@ -26,16 +26,13 @@ class ArticleContainer extends Component {
         return filteredArray.map(article => <Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} />)
     }
 
-    
-
     searchHandler = (e) => {
         this.setState({ searchValue: e.target.value})
     }
 
     
-
     render() {
-        console.log(this.props.articles)
+        // console.log(this.props.articles)
         return (
             <>
                 { this.props.articles.length === 0 ? 
@@ -47,7 +44,7 @@ class ArticleContainer extends Component {
                             <Route path="/articles/:id" render={({match}) => {
                                 let urlId = parseInt(match.params.id)
                                 let foundArticle = this.props.articles.find(article => article.id === urlId)
-                                return <ArticleInfo article={foundArticle} />
+                                return <ArticleInfo favoriteClickHandler={this.props.favoriteClickHandler} article={foundArticle} />
                             }}/>
 
                             <Route path="/articles" render={() => (

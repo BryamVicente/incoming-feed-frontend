@@ -11,9 +11,12 @@ import {  Icon, Button, Menu} from 'semantic-ui-react'
 class ArticlePage extends Component {
 
     state = {
-        // favoriteArticles: [],
+        
         articles: [],
-        favoriteArticles: []
+        favoriteArticles: [],
+        favorites: [],
+        user: {},
+        current_user_id: 1
     }
 
     componentDidMount = () => {
@@ -23,7 +26,22 @@ class ArticlePage extends Component {
         .then(data => {this.setState(prevState => ({
             articles: data
         }))})
+        fetch("http://localhost:3000/api/v1/favorites")
+        .then(r => r.json())
+        .then(singleFav => {this.setState({ favorites: singleFav[0] })})
+        fetch("http://localhost:3000/api/v1/favorite_articles")
+        .then(r => r.json())
+        .then(data => {
+            // let thisUserArticles = data.filter(dataObj => dataObj.favorite.user_id === this.state.current_user_id )
+            this.setState({ favoriteArticles: data })
+        })
     }
+
+    // showingFavorites = () => {
+    //     return this.state.favorites.map(favorite =)
+    // }
+
+   
 
     // componentDidMount = () => {
     //     fetch("http://localhost:3000/api/v1/users")
@@ -63,26 +81,17 @@ class ArticlePage extends Component {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                // title: article_object.title,
-                // category: article_object.category ,
-                // author: article_object.author ,
-                // description: article_object.description,
-                // url: article_object.url ,
-                // urlToImage: article_object.urlToImage,
-                // content: article_object.content ,
+              
                 article_id: article_object.id  ,
-                favorite_id: 1,
+                favorite_id: 2,
                 review: "dfgsdvwrgv"
-                // user_id: article_object.favorite.user_id,
-                // name: article_object.favorite.name
             })
         })
         .then(r => r.json())
-        .then(newArticleInFav => {
-            this.setState({favoriteArticles: [...this.state.favoriteArticles, newArticleInFav]})
-            localStorage.setItem('articles',JSON.stringify(this.state.favoriteArticles))
-        
-        })
+        .then(newArticleInFav => 
+            this.setState(() => ({favoriteArticles: [...this.state.favoriteArticles, newArticleInFav]})))
+            // localStorage.setItem('articles',JSON.stringify(this.state.favoriteArticles))
+       
     }
 
     deleteFavoriteArticletHandler = (object) => {
@@ -100,34 +109,29 @@ class ArticlePage extends Component {
         .catch(console.log)
     }
     
-    
     render() {
         // debugger
+        console.log(this.state.favorites, "this.state.favorites")
+        console.log(this.state.favoriteArticles,  "this.state.favoriteArticles")
         return (
             <>
                 <Logo/>    
                     <Menu className="nav-links" pointing secondary>
                         <Menu.Menu position='right'>
                             
-                                <Menu.Item children={ <NavLink to="/login" className="login-link">Log In</NavLink> } />
-                                <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
-                                <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
-                                <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
+                            <Menu.Item children={ <NavLink to="/login" className="login-link">Log In</NavLink> } />
+                            <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
+                            <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
+                            <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
                         
                         </Menu.Menu>
                     </Menu>
 
                 <Switch>
-                        <Route path="/signup" render={()=> <Signup   />} />
-                        <Route path="/login" render={()=> <Login />} />
-                        
-                    {/* {this.state.current_user !== null ?  */}
-                            <Route path="/favorites" render={() => <Favorite favoriteArticles={this.state.favoriteArticles} editReviewHandler={this.editReviewHandler} deleteFavoriteArticletHandler={this.deleteFavoriteArticletHandler}/>} /> 
-                        {/* :  */}
-                        {/* null */}
-                        {/* }     */}
-                        {/* <Route path="/aboutus" render={() => <AboutUs />}/> */}
-                        <Route path="/articles" render={() => <ArticleContainer  articles={this.state.articles} favoriteClickHandler={this.favoriteClickHandler} />}/>
+                    <Route path="/signup" render={()=> <Signup   />} />
+                    <Route path="/login" render={()=> <Login />} />
+                    <Route path="/favorites" render={() => <Favorite  favorites={this.state.favorites} favoriteArticles={this.state.favoriteArticles} editReviewHandler={this.editReviewHandler} deleteFavoriteArticletHandler={this.deleteFavoriteArticletHandler}/>} /> 
+                    <Route path="/articles" render={() => <ArticleContainer  articles={this.state.articles} favoriteClickHandler={this.favoriteClickHandler} />}/>
                 </Switch>
             </>
         )

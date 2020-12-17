@@ -19,7 +19,7 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react'
     }
 
     render(){
-        console.log(this.props.article)
+        // console.log(this.props.article)
         return (
             <Card>
                 <NavLink to={`/articles/${this.props.article.id}`}>
