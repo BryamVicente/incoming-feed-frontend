@@ -2,24 +2,19 @@ import React, { Component } from 'react'
 import  Article  from '../Components/Article'
 import FilterByCategory from '../Components/FilterByCategory'
 import Search from '../Components/Search'
-// import { connect } from 'react-redux'
-// import { getArticleFromApi } from '../redux/action'
+import { connect } from 'react-redux'
+import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
 
 class ArticleContainer extends Component {
     state = {
-        // articles: [],
         searchValue: ""
     }
 
-    // componentDidMount = () => {
-    //     fetch("http://localhost:3000/api/v1/articles")
-    //     .then(r => r.json())
-    //     .then(data => {this.setState(prevState => ({
-    //         articles: data
-    //     }))})
-    // }
+    componentDidMount = () => {
+        this.props.fetchArticles()
+    }
 
     renderArticles = () => {
         let filteredArray = this.props.articles.filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
@@ -30,9 +25,7 @@ class ArticleContainer extends Component {
         this.setState({ searchValue: e.target.value})
     }
 
-    
     render() {
-        // console.log(this.props.articles)
         return (
             <>
                 { this.props.articles.length === 0 ? 
@@ -62,16 +55,16 @@ class ArticleContainer extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return { articles: state.articles}
-// }
+const mapStateToProps = (state) => {
+    return { articles: state.articles}
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         fetchArticles: () => dispatch(getArticleFromApi())
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchArticles: () => dispatch(getArticleFromApi())
+    }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)  (ArticleContainer);
+export default connect(mapStateToProps, mapDispatchToProps) (ArticleContainer);
 
-export default ArticleContainer;
+// export default ArticleContainer;

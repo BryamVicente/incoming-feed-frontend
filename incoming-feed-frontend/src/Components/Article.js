@@ -2,8 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
-// import { connect } from 'react-redux'
-// import {  addingArticleToList} from '../redux/action'
+import { connect } from 'react-redux'
+import { addingFavoriteArticle } from '../redux/action'
 
  class Article extends React.Component {
 
@@ -12,14 +12,11 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react'
     }
 
     addToFavoriteHandler = () => {
-        // console.log("clicked" )
         this.setState({ flipped: true })
-        this.props.favoriteClickHandler(this.props.article)
-        // localStorage.setItem('articles',JSON.stringify(this.props.article))
+        this.props.addToFavs(this.props.article)
     }
 
     render(){
-        // console.log(this.props.article)
         return (
             <Card>
                 <NavLink to={`/articles/${this.props.article.id}`}>
@@ -46,20 +43,13 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react'
         )
     }
 }
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToFavs: (articleObj) => dispatch( addingFavoriteArticle(articleObj))
+    }
+}
 
-// I dont think we need this!!!
-    // const mapStateToProps = (state) => {
-    //     return { articles: state.articles}
-    // }
+export default connect(null, mapDispatchToProps)(Article);
 
-    ///   
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         addToFavs: (singleObj) => dispatch( addingArticleToList(singleObj))
-//     }
-// }
-
-
-// export default connect(null, mapDispatchToProps)(Article);
-
-export default Article;
+// export default Article;

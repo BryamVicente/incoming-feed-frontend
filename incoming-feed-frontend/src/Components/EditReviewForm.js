@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
+import { updateReview } from '../redux/action'
+ 
 class EditReviewForm extends Component {
 
     state = {
@@ -15,7 +17,7 @@ class EditReviewForm extends Component {
     localSubmitHandler = (e) => {
         e.preventDefault()
         console.log("inside the form: ", e.target[0].value)
-        this.props.editReviewHandler(this.state.review, this.props.favArt.id)
+        this.props.patchReview(this.state.review, this.props.favArt.id)
         this.setState({ review:""})
     }
 
@@ -25,11 +27,15 @@ class EditReviewForm extends Component {
             <form onSubmit={this.localSubmitHandler}>
                 <input type="type" name="review" value={this.state.review} onChange={this.onChangeHandler}/>
                 <input type="submit" name="submit" value="Edit Review" />
-                
             </form>
         )
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        patchReview: (updatedRev, id) => dispatch( updateReview(updatedRev, id))
+    }
+}
 
-export default EditReviewForm
+export default connect(null, mapDispatchToProps)(EditReviewForm)

@@ -1,30 +1,18 @@
 import React from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import EditReviewForm from './EditReviewForm'
-// import {connect} from 'react-redux'
-// import { addingArticleToList } from '../redux/action'
+import {connect} from 'react-redux'
+import { deleteFavoriteArticle } from '../redux/action'
 
 
 class FavoriteArticle extends React.Component {
 
     state = {
         display: false,
-        // review: this.props.favArt.review
-        article_id: this.props.favArt.article_id,
-        articles: this.props.articles,
-        current_article: {}
     }
 
-    // searchingArticles = () => {
-    //     let articleSearch = this.props.articles.filter(article=> article.id === this.state.articles_id)
-    //     this.setState({current_article: articleSearch})
-        
-    // }
-
-
     localDeleteHandler = () => {
-        this.props.deleteFavoriteArticletHandler(this.props.favArt)
-        // console.log(this.props)
+        this.props.deleteFavoriteArt(this.props.favArt)
     }
 
     handleForm = () => {
@@ -32,17 +20,13 @@ class FavoriteArticle extends React.Component {
     }
 
     render(){
-        // console.log(this.props.favorites)
-        // console.log(this.props)
-    //     console.log(this.state)
-    //    console.log( this.props.favArt)
+    
         return (
             <Card>
         
                 <Card>
                     <img className= "article-image" src={this.props.favArt.article.urlToImage} />
                 </Card>
-            
     
             <Card.Content>
                 
@@ -63,18 +47,14 @@ class FavoriteArticle extends React.Component {
     
             <Button onClick={this.localDeleteHandler} color="red" content="Delete!" />
         </Card>
-        )
-
-    
+        )    
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         addtoFavorites: (adding) => dispatch( addingArticleToList(adding))
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteFavoriteArt: (deletedFav) => dispatch( deleteFavoriteArticle(deletedFav))
+    }
+}
 
-// export default connect(mapDispatchToProps)(FavoriteArticle);
-
-export default FavoriteArticle;
+export default connect(null, mapDispatchToProps)(FavoriteArticle);
