@@ -84,7 +84,7 @@ class ArticlePage extends Component {
               
                 article_id: article_object.id  ,
                 favorite_id: 2,
-                review: "dfgsdvwrgv"
+                review: ""
             })
         })
         .then(r => r.json())
