@@ -6,6 +6,17 @@ import { connect } from 'react-redux'
 import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
+// import { makeStyles } from '@material-ui/core/styles'
+// import Pagination from '@material-ui/lab/Pagination'
+
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//         '& > *': {
+//             marginTop: theme.spacing(2),
+//         },
+//     },
+// }))
+
 
 class ArticleContainer extends Component {
     state = {
@@ -26,6 +37,7 @@ class ArticleContainer extends Component {
     }
 
     render() {
+        // const classes = useStyles()
         return (
             <>
                 { this.props.articles.length === 0 ? 
@@ -48,6 +60,14 @@ class ArticleContainer extends Component {
                                 </>
                             )}/>
                         </Switch>
+
+                        {/* <div className={classes.root}>
+                            <Pagination count={5}/>
+                            <Pagination count={5} color="primary"/>
+                            <Pagination count={5} color="secondary" />
+                            <Pagination count={5} color="disabled" />
+
+                        </div> */}
                     </>
                 }
             </>
@@ -67,4 +87,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps) (ArticleContainer);
 
-// export default ArticleContainer;
