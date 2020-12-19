@@ -30,7 +30,7 @@ export function addingFavoriteArticle(favArticleObj) {
             },
             body: JSON.stringify({
                 article_id: favArticleObj.id  ,
-                favorite_id: 2,
+                favorite_id: 1,
                 review: ""
             })
         })

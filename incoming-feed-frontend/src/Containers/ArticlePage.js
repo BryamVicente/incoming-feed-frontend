@@ -23,6 +23,7 @@ class ArticlePage extends Component {
     }
  
     render() {
+        console.log(this.props.favoriteArticles)
         return (
             <>
                 <Logo/>    
