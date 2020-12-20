@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
+import {Grid, Advertisement } from 'semantic-ui-react'
 // import { makeStyles } from '@material-ui/core/styles'
 // import Pagination from '@material-ui/lab/Pagination'
 
@@ -20,21 +21,31 @@ import ArticleInfo from '../Components/ArticleInfo'
 
 class ArticleContainer extends Component {
     state = {
-        searchValue: ""
+        searchValue: "",
+        selectedCategory: ""
     }
 
     componentDidMount = () => {
         this.props.fetchArticles()
     }
 
+    filteredArticlesByCategory = () => {
+        return this.props.articles.filter(articles_obj => articles_obj.category_choice.name.includes(this.state.selectedCategory))
+    }
+
     renderArticles = () => {
-        let filteredArray = this.props.articles.filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        return filteredArray.map(article => <Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} />)
+        let filteredArray = this.filteredArticlesByCategory().filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+        return filteredArray.map(article => <Grid.Column key={article.id}><Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} /></Grid.Column>)
     }
 
     searchHandler = (e) => {
         this.setState({ searchValue: e.target.value})
     }
+
+    categoryOnChange = (e) => {
+        this.setState({ selectedCategory: e.target.value})
+    }
+
 
     render() {
         // const classes = useStyles()
@@ -54,9 +65,11 @@ class ArticleContainer extends Component {
 
                             <Route path="/articles" render={() => (
                                 <>
-                                    <FilterByCategory/>
+                                    <FilterByCategory categoryOnChange={this.categoryOnChange}/>
                                     <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} /> 
-                                    {this.renderArticles()}
+                                    <Grid relaxed centered container columns={2}>
+                                        {this.renderArticles()}
+                                    </Grid>
                                 </>
                             )}/>
                         </Switch>

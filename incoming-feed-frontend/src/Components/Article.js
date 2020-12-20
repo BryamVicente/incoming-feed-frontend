@@ -52,4 +52,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(null, mapDispatchToProps)(Article);
 
-// export default Article;

@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 
 const defaultState = {
     articles: [],
-    favoriteArticles: []
+    favoriteArticles: [],
+    category_choices: []
 }
 
 function articleReducer( state = defaultState.articles, action) {
@@ -32,9 +33,19 @@ function favoriteArticleReducer( state = defaultState.favoriteArticles, action) 
     }
 }
 
+function categoryChoiceReducer(state = defaultState.category_choices, action){
+    switch(action.type){
+        case "FETCH_CATEGORY_CHOICES":
+            return action.payload
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
     articles: articleReducer,
-    favoriteArticles: favoriteArticleReducer
+    favoriteArticles: favoriteArticleReducer,
+    category_choices: categoryChoiceReducer
 })
 
 export default rootReducer
