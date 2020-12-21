@@ -7,22 +7,15 @@ import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
 import {Grid, Advertisement } from 'semantic-ui-react'
-// import { makeStyles } from '@material-ui/core/styles'
-// import Pagination from '@material-ui/lab/Pagination'
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         '& > *': {
-//             marginTop: theme.spacing(2),
-//         },
-//     },
-// }))
+import SamplePagination from '../Components/SamplePagination'
 
 
 class ArticleContainer extends Component {
     state = {
         searchValue: "",
-        selectedCategory: ""
+        selectedCategory: "",
+        currentPage: 1, 
+        articlesPerPage: 15
     }
 
     componentDidMount = () => {
@@ -34,6 +27,9 @@ class ArticleContainer extends Component {
     }
 
     renderArticles = () => {
+        // let indexOfLastArticle = this.state.currentPage * this.state.articlesPerPage
+        // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
+        // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
         let filteredArray = this.filteredArticlesByCategory().filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(article => <Grid.Column key={article.id}><Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} /></Grid.Column>)
     }
@@ -46,11 +42,16 @@ class ArticleContainer extends Component {
         this.setState({ selectedCategory: e.target.value})
     }
 
-
+    
+    
     render() {
+        // let indexOfLastArticle = this.state.currentPage * this.state.articlesPerPage
+        // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
+        // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
         // const classes = useStyles()
         return (
             <>
+                <SamplePagination />    
                 { this.props.articles.length === 0 ? 
 
                     <h1 className="loading"> Loading Articles...</h1>
@@ -74,13 +75,6 @@ class ArticleContainer extends Component {
                             )}/>
                         </Switch>
 
-                        {/* <div className={classes.root}>
-                            <Pagination count={5}/>
-                            <Pagination count={5} color="primary"/>
-                            <Pagination count={5} color="secondary" />
-                            <Pagination count={5} color="disabled" />
-
-                        </div> */}
                     </>
                 }
             </>

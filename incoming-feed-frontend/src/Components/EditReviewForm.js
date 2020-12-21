@@ -26,7 +26,7 @@ class EditReviewForm extends Component {
         return (
             <form onSubmit={this.localSubmitHandler}>
                 <input type="type" name="review" value={this.state.review} onChange={this.onChangeHandler}/>
-                <input type="submit" name="submit" value="Edit Review" />
+                <input type="submit" name="submit" value="submit" />
             </form>
         )
     }

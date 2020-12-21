@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card, Icon, Image, Button, Item, Divider } from 'semantic-ui-react'
 import EditReviewForm from './EditReviewForm'
 import {connect} from 'react-redux'
 import { deleteFavoriteArticle } from '../redux/action'
@@ -22,31 +22,54 @@ class FavoriteArticle extends React.Component {
     render(){
     console.log(this.props.favArt)
         return (
-            <Card>
+        //     <Card>
         
-                <Card>
-                    <img className= "article-image" src={this.props.favArt.article.urlToImage} />
-                </Card>
+        //         <Card>
+        //             <img className= "article-image" src={this.props.favArt.article.urlToImage} />
+        //         </Card>
     
-            <Card.Content>
+        //     <Card.Content>
                 
-                <Card.Header>{this.props.favArt.article.title}</Card.Header>
+        //         <Card.Header>{this.props.favArt.article.title}</Card.Header>
     
-                <Card.Meta>
-                    <span>{this.props.favArt.article.author}</span>
-                </Card.Meta>
+        //         <Card.Meta>
+        //             <span>{this.props.favArt.article.author}</span>
+        //         </Card.Meta>
     
-                <Card.Description>
-                    {this.props.favArt.article.description}
-                </Card.Description>
-            </Card.Content>
-            <h3>Review: {this.props.favArt.review}</h3>
-            <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
-            <Button onClick={this.handleForm} content="Edit Review" color="blue" />
-            {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
+        //         <Card.Description>
+        //             {this.props.favArt.article.description}
+        //         </Card.Description>
+        //     </Card.Content>
+        //     <h3>Review: {this.props.favArt.review}</h3>
+        //     <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+        //     <Button onClick={this.handleForm} content="Edit Review" color="blue" />
+        //     {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
     
-            <Button onClick={this.localDeleteHandler} color="red" content="Delete!" />
-        </Card>
+        //     <Button onClick={this.localDeleteHandler} color="red" content="Delete!" />
+        // </Card>
+
+    <Item.Group>
+    <Item>
+    <Item.Image src={this.props.favArt.article.urlToImage}/>
+
+    <Item.Content>
+      <Item.Header as='a'>{this.props.favArt.article.title}</Item.Header>
+      <Item.Meta>
+        <span className='cinema'>{this.props.favArt.article.author}</span>
+      </Item.Meta>
+      <Item.Description>{this.props.favArt.article.description}</Item.Description>
+      <Item.Extra>
+      <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+      <h3>Review: {this.props.favArt.review}</h3>
+      <Button onClick={this.handleForm} content="Leave Review" color="blue" />
+      {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
+        <Button floated='right' color="red" content="Delete!" onClick={this.localDeleteHandler}/>
+        
+      </Item.Extra>
+    </Item.Content>
+  </Item>
+  <Divider/>
+</Item.Group>
         )    
     }
 }
