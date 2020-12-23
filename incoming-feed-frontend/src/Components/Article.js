@@ -10,7 +10,7 @@ import { Card, CardGroup} from 'react-bootstrap';
 
     state = {
         flipped: false,
-        
+
     }
 
     addToFavoriteHandler = () => {

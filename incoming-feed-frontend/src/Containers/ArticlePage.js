@@ -9,13 +9,14 @@ import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
 import {  Icon, Button, Menu} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getFavoriteArticleFromApi } from '../redux/action'
-
+// import SamplePagination from '../Components/SamplePagination'
 
 class ArticlePage extends Component {
 
     state = {
         user: {},
         current_user_id: 1
+
     }
 
     componentDidMount = () => {
@@ -27,17 +28,18 @@ class ArticlePage extends Component {
         return (
             <>
                 <Logo/>    
-                    <Menu className="nav-links" pointing secondary>
-                        <Menu.Menu position='right'>
-                            
-                            <Menu.Item children={ <NavLink to="/login" className="login-link">Log In</NavLink> } />
-                            <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
-                            <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
-                            <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
-                            <Menu.Item children={ <NavLink to="/weather" className="weather-link">Weather</NavLink>}/>
+
+                <Menu className="nav-links" pointing secondary>
+                    <Menu.Menu position='right'>
                         
-                        </Menu.Menu>
-                    </Menu>
+                        <Menu.Item children={ <NavLink to="/login" className="login-link">Log In</NavLink> } />
+                        <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
+                        <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
+                        <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
+                        <Menu.Item children={ <NavLink to="/weather" className="weather-link">Weather</NavLink>}/>
+                    
+                    </Menu.Menu>
+                </Menu>
 
                 <Switch>
                     <Route path="/signup" render={()=> <Signup   />} />
@@ -46,6 +48,8 @@ class ArticlePage extends Component {
                     <Route path="/articles" render={() => <ArticleContainer  favoriteClickHandler={this.favoriteClickHandler} />}/>
                     <Route path="/weather" render={() => <Weather />} />
                 </Switch>
+
+                {/* <SamplePagination />   */}
             </>
         )
     }

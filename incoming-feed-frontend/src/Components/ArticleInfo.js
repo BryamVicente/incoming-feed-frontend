@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Item, Button, Icon } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { addingFavoriteArticle } from '../redux/action'
 
 class ArticleInfo extends Component {
 
@@ -7,14 +9,13 @@ class ArticleInfo extends Component {
         switch: false
     }
 
-    addToFavHandler = () => {
-        // this.props.addingArticlesToFav(this.props.article)
-        console.log("clicked to show ")
-        this.setState({ switch: true})
-        this.props.favoriteClickHandler(this.props.article)
+    addToFavoriteHandler = () => {
+        this.setState({ switch: true })
+        this.props.addToFavs(this.props.article)
     }
 
     render() {
+        console.log(this.props)
         return (
             <>
                 {/* <div>
@@ -31,7 +32,7 @@ class ArticleInfo extends Component {
                         <label className="desc-tag">Content: </label>
                         <h3>{this.props.article.content}</h3>
                         <div>
-                            <Button onClick={this.addToFavHandler} >
+                            <Button onClick={this.addToFavoriteHandler} >
                                 {this.state.switch ? "In Fav!" : "Add to Favs!"}
                             </Button>
                             <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
@@ -45,5 +46,12 @@ class ArticleInfo extends Component {
     }
 }
 
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToFavs: (articleObj) => dispatch( addingFavoriteArticle(articleObj))
+    }
+}
 
-export default ArticleInfo;
+
+export default connect(null, mapDispatchToProps)(ArticleInfo);

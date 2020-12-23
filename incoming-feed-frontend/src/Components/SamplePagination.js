@@ -1,23 +1,23 @@
 
 
-import React from 'react'
-import { Pagination } from 'semantic-ui-react'
+// import React from 'react'
+// import { Pagination } from 'semantic-ui-react'
 
 
-const SamplePagination = () => (
-  <Pagination
-    defaultActivePage={1}
-    firstItem={null}
-    lastItem={null}
-    pointing
-    secondary
-    totalPages={3}
-  />
-)
+// const SamplePagination = () => (
+//   <Pagination
+//     defaultActivePage={1}
+//     firstItem={null}
+//     lastItem={null}
+//     pointing
+//     secondary
+//     totalPages={3}
+//   />
+// )
 
-export default SamplePagination
+// export default SamplePagination
 
-
+// const Sample
 
 
 
