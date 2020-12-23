@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FavoriteArticle from '../Components/FavoriteArticle'
+import { connect } from 'react-redux'
 
 class Favorite extends Component {
 
@@ -8,15 +9,19 @@ class Favorite extends Component {
     }
 
     render() {
-        console.log(this.props.favoriteArticles,  "this.props.favoriteArticles")
+        console.log(this.props)
         return (
             <div>
-                <h2> I'm the favorite list</h2>
+                <h2 className="favorite-header"> Favorites</h2>
                 {this.renderFavoriteArticles()}
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => {
+    return { favoriteArticles: state.favoriteArticles}
+}
 
-export default Favorite;
+
+export default connect(mapStateToProps)(Favorite)

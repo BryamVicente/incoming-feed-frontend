@@ -9,6 +9,7 @@ import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
 import {  Icon, Button, Menu} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getFavoriteArticleFromApi } from '../redux/action'
+import Profile from '../Containers/Profile'
 
 
 class ArticlePage extends Component {
@@ -23,7 +24,6 @@ class ArticlePage extends Component {
     }
  
     render() {
-        console.log(this.props.favoriteArticles)
         return (
             <>
                 <Logo/>    
@@ -35,25 +35,23 @@ class ArticlePage extends Component {
                             <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
                             <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
                             <Menu.Item children={ <NavLink to="/weather" className="weather-link">Weather</NavLink>}/>
-                        
+                            <Menu.Item children={ <NavLink to="/profile" className="profile-link">Profile</NavLink>}/>
                         </Menu.Menu>
                     </Menu>
 
                 <Switch>
                     <Route path="/signup" render={()=> <Signup   />} />
                     <Route path="/login" render={()=> <Login />} />
-                    <Route path="/favorites" render={() => <Favorite favoriteArticles={this.props.favoriteArticles} editReviewHandler={this.editReviewHandler} deleteFavoriteArticletHandler={this.deleteFavoriteArticletHandler}/>} /> 
-                    <Route path="/articles" render={() => <ArticleContainer  favoriteClickHandler={this.favoriteClickHandler} />}/>
+                    <Route path="/favorites" render={() => <Favorite />} /> 
+                    <Route path="/articles" render={() => <ArticleContainer />}/>
                     <Route path="/weather" render={() => <Weather />} />
+                    <Route path="/profile" render={() => <Profile />} />
                 </Switch>
             </>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return { favoriteArticles: state.favoriteArticles}
-}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -61,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ArticlePage))
+export default withRouter(connect(null, mapDispatchToProps)(ArticlePage))

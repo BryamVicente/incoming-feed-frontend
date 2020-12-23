@@ -1,4 +1,4 @@
-import { FETCH_ARTICLES, FETCH_FAVORITE_ARTICLES, ADD_FAVORITE_ARTICLES, DELETE_FAVORITE_ARTICLES, UPDATE_REVIEW_IN_FAVORITE_ARTICLES, FETCH_CATEGORY_CHOICES} from './actionTypes'
+import { FETCH_ARTICLES, FETCH_FAVORITE_ARTICLES, ADD_FAVORITE_ARTICLES, DELETE_FAVORITE_ARTICLES, UPDATE_REVIEW_IN_FAVORITE_ARTICLES, FETCH_CATEGORY_CHOICES, FETCH_USER_INTERESTS} from './actionTypes'
 
 export function getArticleFromApi() {
     return function(dispatch){
@@ -30,7 +30,7 @@ export function addingFavoriteArticle(favArticleObj) {
             },
             body: JSON.stringify({
                 article_id: favArticleObj.id  ,
-                favorite_id: 2,
+                favorite_id: 1,
                 review: ""
             })
         })
@@ -67,13 +67,18 @@ export function updateReview (review, id) {
     }
 }
 
-
 export function fetchCategoryChoice () {
     return function(dispatch) {
         fetch("http://localhost:3000/api/v1/category_choices")
         .then(r => r.json())
-        .then(data => {
-            dispatch({type: FETCH_CATEGORY_CHOICES, payload: data})
-        })
+        .then(data => { dispatch({type: FETCH_CATEGORY_CHOICES, payload: data}) })
+    }
+}
+
+export function fetchUserInterests() {
+    return function(dispatch) {
+        fetch("http://localhost:3000/api/v1/user_interests")
+        .then(r => r.json())
+        .then(data => { dispatch({type: FETCH_USER_INTERESTS, payload: data}) })
     }
 }

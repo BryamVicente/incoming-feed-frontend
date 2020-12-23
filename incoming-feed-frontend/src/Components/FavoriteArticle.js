@@ -8,20 +8,20 @@ import { deleteFavoriteArticle } from '../redux/action'
 class FavoriteArticle extends React.Component {
 
     state = {
-        display: false,
+      display: false,
     }
 
     localDeleteHandler = () => {
-        this.props.deleteFavoriteArt(this.props.favArt)
+      this.props.deleteFavoriteArt(this.props.favArt)
     }
 
     handleForm = () => {
-        this.setState({display: !this.state.display})
+      this.setState({display: !this.state.display})
     }
 
     render(){
     console.log(this.props.favArt)
-        return (
+      return (
         //     <Card>
         
         //         <Card>
@@ -48,30 +48,30 @@ class FavoriteArticle extends React.Component {
         //     <Button onClick={this.localDeleteHandler} color="red" content="Delete!" />
         // </Card>
 
-    <Item.Group>
-    <Item>
-    <Item.Image src={this.props.favArt.article.urlToImage}/>
+        <Item.Group>
+          <Item>
+            <Item.Image src={this.props.favArt.article.urlToImage}/>
 
-    <Item.Content>
-      <Item.Header as='a'>{this.props.favArt.article.title}</Item.Header>
-      <Item.Meta>
-        <span className='cinema'>{this.props.favArt.article.author}</span>
-      </Item.Meta>
-      <Item.Description>{this.props.favArt.article.description}</Item.Description>
-      <Item.Extra>
-      <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
-      <h3>Review: {this.props.favArt.review}</h3>
-      <Button onClick={this.handleForm} content="Leave Review" color="blue" />
-      {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
-        <Button floated='right' color="red" content="Delete!" onClick={this.localDeleteHandler}/>
+            <Item.Content>
+              <Item.Header as='a'>{this.props.favArt.article.title}</Item.Header>
+              <Item.Meta>
+                <span className='cinema'>{this.props.favArt.article.author}</span>
+              </Item.Meta>
+              <Item.Description>{this.props.favArt.article.description}</Item.Description>
+              <Item.Extra>
+                <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+                <h3>Review: {this.props.favArt.review}</h3>
+                <Button onClick={this.handleForm} content="Leave Review" color="blue" />
+                {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
+                <Button floated='left' color="red" content="Delete!" onClick={this.localDeleteHandler}/>
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+          <Divider/>
+        </Item.Group>
         
-      </Item.Extra>
-    </Item.Content>
-  </Item>
-  <Divider/>
-</Item.Group>
-        )    
-    }
+    )    
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

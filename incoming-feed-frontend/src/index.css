@@ -28,3 +28,18 @@ code {
 .logo {
   text-align: center;
 }
+
+.profile-title {
+  text-align: center;
+}
+
+.profile-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.favorite-header {
+  text-align: center;
+}

@@ -49,6 +49,7 @@ class ArticleContainer extends Component {
         // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
         // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
         // const classes = useStyles()
+        console.log(this.props)
         return (
             <>
                 <SamplePagination />    
