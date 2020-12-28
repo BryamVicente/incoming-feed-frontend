@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ProfileInfo from '../Components/ProfileInfo'
-import { fetchUserInterests } from '../redux/action'
+import { fetchUsers } from '../redux/action'
 
 class Profile extends Component {
 
@@ -10,7 +10,7 @@ class Profile extends Component {
     }
 
     renderUsers = () => {
-        return this.props.userInterests.map(userInterest => <ProfileInfo key={userInterest.id} userInterest={userInterest} />)
+        return this.props.users.map(user => <ProfileInfo key={user.id} user={user} />)
     }
 
     render() {
@@ -24,12 +24,12 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { userInterests: state.userInterests}
+    return { users: state.users}
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getUsers: () => { dispatch(fetchUserInterests()) }
+        getUsers: () => { dispatch(fetchUsers()) }
     }
 }
 

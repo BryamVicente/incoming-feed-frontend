@@ -1,4 +1,4 @@
-import { FETCH_ARTICLES, FETCH_FAVORITE_ARTICLES, ADD_FAVORITE_ARTICLES, DELETE_FAVORITE_ARTICLES, UPDATE_REVIEW_IN_FAVORITE_ARTICLES, FETCH_CATEGORY_CHOICES, FETCH_USER_INTERESTS} from './actionTypes'
+import { FETCH_ARTICLES, FETCH_FAVORITE_ARTICLES, ADD_FAVORITE_ARTICLES, DELETE_FAVORITE_ARTICLES, UPDATE_REVIEW_IN_FAVORITE_ARTICLES, FETCH_CATEGORY_CHOICES, FETCH_USERS} from './actionTypes'
 
 export function getArticleFromApi() {
     return function(dispatch){
@@ -75,10 +75,10 @@ export function fetchCategoryChoice () {
     }
 }
 
-export function fetchUserInterests() {
+export function fetchUsers() {
     return function(dispatch) {
-        fetch("http://localhost:3000/api/v1/user_interests")
+        fetch("http://localhost:3000/api/v1/users")
         .then(r => r.json())
-        .then(data => { dispatch({type: FETCH_USER_INTERESTS, payload: data}) })
+        .then(data => { dispatch({type: FETCH_USERS, payload: data}) })
     }
 }

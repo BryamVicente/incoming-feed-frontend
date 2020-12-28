@@ -4,12 +4,12 @@ const defaultState = {
     articles: [],
     favoriteArticles: [],
     category_choices: [],
-    userInterests: []
+    users: []
 }
 
-function userInterestReducer(state = defaultState.userInterests, action) {
+function userReducer(state = defaultState.users, action) {
     switch (action.type) {
-        case "FETCH_USER_INTERESTS":
+        case "FETCH_USERS":
             return action.payload
         default: 
             return state
@@ -57,7 +57,7 @@ const rootReducer = combineReducers({
     articles: articleReducer,
     favoriteArticles: favoriteArticleReducer,
     category_choices: categoryChoiceReducer,
-    userInterests: userInterestReducer
+    users: userReducer
 })
 
 export default rootReducer
