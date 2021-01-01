@@ -36,8 +36,6 @@ class Login extends React.Component {
         }
     }
 
-
-
     render(){
         return (
 
@@ -58,7 +56,6 @@ class Login extends React.Component {
                     </Button>
                      {this.userLoggedIn}
             </Form>
-            
         )
     }
 }
@@ -66,9 +63,6 @@ class Login extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return { login: (userInfo) => dispatch(loginAction(userInfo))}
 }
-
-
-
 
 
 export default connect(null, mapDispatchToProps)(Login)

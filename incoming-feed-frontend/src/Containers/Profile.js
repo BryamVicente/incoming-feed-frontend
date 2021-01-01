@@ -5,12 +5,9 @@ import ProfileInfo from '../Components/ProfileInfo'
 
 class Profile extends Component {
 
-   
-
     render() {
         console.log(this.props.currentUser)
         return (
-            
             <div>
                 <h2 className="profile-title"> User's Info </h2>
                 <ProfileInfo  />

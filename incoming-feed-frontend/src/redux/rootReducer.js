@@ -4,8 +4,6 @@ const defaultState = {
     articles: [],
     favoriteArticles: [],
     category_choices: [],
-    // users: [],
-    // currentUser: null
     currentUser: {}
 }
 
@@ -66,20 +64,16 @@ function currentUserReducer(state = defaultState.currentUser, action) {
         //     // debugger
         //     return action.payload
         case "LOGOUT":
-            // debugger
             return {}
         default:
             return state
     }
 }
 
-
-
 const rootReducer = combineReducers({
     articles: articleReducer,
     favoriteArticles: favoriteArticleReducer,
     category_choices: categoryChoiceReducer,
-    // users: userReducer, 
     currentUser: currentUserReducer
 })
 

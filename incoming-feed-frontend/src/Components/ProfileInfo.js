@@ -9,7 +9,6 @@ class ProfileInfo extends Component {
     }
 
     renderInterests = () => {
-        debugger
         return this.props.currentUser.interests.map(interest => {
             console.log(interest)
             return(
@@ -21,29 +20,29 @@ class ProfileInfo extends Component {
     }
 
     render() {
-        
         return (
             <>           
-                    {this.props.currentUser.length > 0 ? 
-                <h2>Loading!!!</h2>
-                        :
+                {this.props.currentUser.length > 0 ? 
+                    <h2>Loading!!!</h2>
+                    :
                     <>
-                <img className="profile-pic" alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
+                        <img className="profile-pic" alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
 
-                <div>
-                    <h3> Name: {this.props.currentUser.username}</h3>
-                </div>
+                        <div>
+                            <h3> Name: {this.props.currentUser.username}</h3>
+                        </div>
 
-                <h3> Interests</h3>
-                <ul>
-                    {this.renderInterests()}
-                </ul>
-                </>
-                    }
+                        <h3> Interests</h3>
+                        <ul>
+                            {this.renderInterests()}
+                        </ul>
+                    </>
+                }
             </>
         )
     }
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         getUser: () => { dispatch(userLoggedIn()) }

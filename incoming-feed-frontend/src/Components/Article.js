@@ -20,46 +20,23 @@ import { Card, CardGroup} from 'react-bootstrap';
 
     render(){
         return (
-            // <Card>
-            //     <NavLink to={`/articles/${this.props.article.id}`}>
-            //         <Card>
-            //             <img className="article-image" src={this.props.article.urlToImage} />
-            //         </Card>
-            //     </NavLink>
-
-            //     <Card.Content>
-            //         <Card.Header>{this.props.article.title}</Card.Header>
- 
-            //         <Card.Meta>
-            //             <span>{this.props.article.author}</span>
-            //         </Card.Meta>
-
-            //         <Card.Description>
-            //             {this.props.article.description}
-            //         </Card.Description>
-            //     </Card.Content>
-            //     <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
-
-            //     <Button onClick={this.addToFavoriteHandler} color="blue" icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
-            // </Card>
             <CardGroup>
                 <Card>
                     <NavLink to={`/articles/${this.props.article.id}`}>
                         <Card.Img className="article-image" variant="top" src={this.props.article.urlToImage} />
                     </NavLink>
+
                     <Card.Body>
-                    <Card.Title>{this.props.article.title}</Card.Title>
-                    <Card.Text>
-                    {/* {this.props.article.description} */}
-                    <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
-                    </Card.Text>
+                        <Card.Title>{this.props.article.title}</Card.Title>
+                        <Card.Text>
+                        <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+                        </Card.Text>
                     </Card.Body>
+
                     <Card.Footer>
-                    {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                    <Button onClick={this.addToFavoriteHandler} color="blue" icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
+                        <Button onClick={this.addToFavoriteHandler} color="blue" icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
                     </Card.Footer>
                 </Card>
-
             </CardGroup>
         )
     }

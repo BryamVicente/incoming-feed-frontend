@@ -10,7 +10,6 @@ class Favorite extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <>
                 <Switch>
@@ -40,6 +39,5 @@ class Favorite extends Component {
 const mapStateToProps = (state) => {
     return { favoriteArticles: state.favoriteArticles}
 }
-
 
 export default connect(mapStateToProps)(Favorite)

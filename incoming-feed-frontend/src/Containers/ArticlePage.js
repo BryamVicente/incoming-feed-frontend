@@ -72,7 +72,6 @@ class ArticlePage extends Component {
     }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchFavoriteArticles: () => dispatch(getFavoriteArticleFromApi()),

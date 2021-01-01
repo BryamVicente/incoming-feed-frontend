@@ -27,9 +27,6 @@ class ArticleContainer extends Component {
     }
 
     renderArticles = () => {
-        // let indexOfLastArticle = this.state.currentPage * this.state.articlesPerPage
-        // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
-        // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
         let filteredArray = this.filteredArticlesByCategory().filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(article => <Grid.Column key={article.id}><Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} /></Grid.Column>)
     }
@@ -42,14 +39,11 @@ class ArticleContainer extends Component {
         this.setState({ selectedCategory: e.target.value})
     }
 
-    
-    
     render() {
         // let indexOfLastArticle = this.state.currentPage * this.state.articlesPerPage
         // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
         // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
         // const classes = useStyles()
-        console.log(this.props)
         return (
             <>
                 <SamplePagination />    
@@ -75,7 +69,6 @@ class ArticleContainer extends Component {
                                 </>
                             )}/>
                         </Switch>
-
                     </>
                 }
             </>
