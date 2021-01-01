@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-import { NavLink, Link } from 'react-router-dom'
+// import { NavLink, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { loginAction } from '../redux/action'
 
 
 class Login extends React.Component {
@@ -14,10 +16,33 @@ class Login extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    loginHandler = (e) => {
+        e.preventDefault()
+        this.props.login(this.state)
+
+        this.setState({
+            username: "",
+            password: ""
+        })
+
+    }
+
+    userLoggedIn = () =>{
+        if (this.props.currentUser !== null){
+            return this.props.history.push('/login')
+            
+        } else {
+            return this.props.history.push('/articles')
+        }
+    }
+
+
+
     render(){
         return (
 
-            <Form>
+            <Form onSubmit={this.loginHandler} >
+               
                 <Form.Field>
                     <label>Username</label>
                     <input type="text" placeholder="enter username..." name="username" value={this.state.username} onChange={this.onChangeHandler}/>
@@ -27,18 +52,23 @@ class Login extends React.Component {
                     <label>Password</label>
                     <input type="password" placeholder="enter password" name="password" value={this.state.password} onChange={this.onChangeHandler}/>
                 </Form.Field>
-                <Link to="/articles">
-                    <Button color="black">
+
+                <Button color="black">
                         <p>Login!</p>
                     </Button>
-                </Link>
-
-                {/* <NavLink to="/articles">Log in</NavLink> */}
-                {/* <Button color="black" type='submit'>Log In</Button>  */}
+                     {this.userLoggedIn}
             </Form>
             
         )
     }
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+    return { login: (userInfo) => dispatch(loginAction(userInfo))}
+}
+
+
+
+
+
+export default connect(null, mapDispatchToProps)(Login)

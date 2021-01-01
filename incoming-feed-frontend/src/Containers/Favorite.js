@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FavoriteArticle from '../Components/FavoriteArticle'
 import { connect } from 'react-redux'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 class Favorite extends Component {
 
@@ -11,10 +12,27 @@ class Favorite extends Component {
     render() {
         console.log(this.props)
         return (
-            <div>
-                <h2 className="favorite-header"> Favorites</h2>
-                {this.renderFavoriteArticles()}
-            </div>
+            <>
+                <Switch>
+                    <Route path="/favorites" render={() => {
+                        return (
+                            <>
+                                {localStorage.getItem('token') ? 
+
+                                    <div> 
+                                        <h2 className="favorite-header"> Favorites</h2>
+                                        {this.renderFavoriteArticles()}
+                                    </div>
+                                :
+                                    <>
+                                        <Redirect to='/login' />
+                                    </>
+                                }
+                            </>
+                        )
+                    }}/>
+                </Switch>
+            </>
         )
     }
 }

@@ -4,17 +4,19 @@ const defaultState = {
     articles: [],
     favoriteArticles: [],
     category_choices: [],
-    users: []
+    // users: [],
+    // currentUser: null
+    currentUser: {}
 }
 
-function userReducer(state = defaultState.users, action) {
-    switch (action.type) {
-        case "FETCH_USERS":
-            return action.payload
-        default: 
-            return state
-    }
-}
+// function userReducer(state = defaultState.users, action) {
+//     switch (action.type) {
+//         case "FETCH_USERS":
+//             return action.payload
+//         default: 
+//             return state
+//     }
+// }
 
 
 function articleReducer( state = defaultState.articles, action) {
@@ -53,11 +55,32 @@ function categoryChoiceReducer(state = defaultState.category_choices, action){
     }
 }
 
+function currentUserReducer(state = defaultState.currentUser, action) {
+    switch(action.type){
+        case "USER_LOGGED_IN":
+            return action.payload
+        case "LOGIN":
+            // debugger
+            return action.payload
+        // case "SIGNUP":
+        //     // debugger
+        //     return action.payload
+        case "LOGOUT":
+            // debugger
+            return {}
+        default:
+            return state
+    }
+}
+
+
+
 const rootReducer = combineReducers({
     articles: articleReducer,
     favoriteArticles: favoriteArticleReducer,
     category_choices: categoryChoiceReducer,
-    users: userReducer
+    // users: userReducer, 
+    currentUser: currentUserReducer
 })
 
 export default rootReducer
