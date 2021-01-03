@@ -4,7 +4,6 @@ import ArticleContainer from './ArticleContainer'
 import Logo from '../Components/Logo'
 import Login from '../Auth/Login'
 import Signup from '../Auth/Signup'
-import Weather from '../Components/Weather'
 import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
 import {  Icon, Button, Menu} from 'semantic-ui-react'
 import { connect } from 'react-redux'
@@ -36,9 +35,6 @@ class ArticlePage extends Component {
             <>
                 <Logo/>    
                     <Menu className="nav-links" pointing secondary>
-                        <Menu.Menu position='right'>
-                            <Menu.Item children={ <NavLink to="/weather" className="weather-link">Weather</NavLink>}/>
-                        </Menu.Menu>
 
                         <Menu.Menu position='right'>
                             {localStorage.getItem('token') ?
@@ -54,7 +50,6 @@ class ArticlePage extends Component {
                                 <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
                             </>
                         }
-
                         </Menu.Menu>
                     </Menu>
 
@@ -63,10 +58,8 @@ class ArticlePage extends Component {
                     <Route path="/login" render={()=> <Login />} />
                     <Route path="/favorites" render={() => <Favorite />} /> 
                     <Route path="/articles" render={() => <ArticleContainer />}/>
-                    <Route path="/weather" render={() => <Weather />} />
                     <Route path="/profile" render={() => <Profile />} />
                 </Switch>
-              
             </>
         )
     }

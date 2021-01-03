@@ -7,8 +7,7 @@ import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
 import {Grid, Advertisement } from 'semantic-ui-react'
-import SamplePagination from '../Components/SamplePagination'
-
+import Weather from '../Components/Weather'
 
 class ArticleContainer extends Component {
     state = {
@@ -46,7 +45,7 @@ class ArticleContainer extends Component {
         // const classes = useStyles()
         return (
             <>
-                <SamplePagination />    
+            
                 { this.props.articles.length === 0 ? 
 
                     <h1 className="loading"> Loading Articles...</h1>
@@ -61,6 +60,7 @@ class ArticleContainer extends Component {
 
                             <Route path="/articles" render={() => (
                                 <>
+                                    <Weather />
                                     <FilterByCategory categoryOnChange={this.categoryOnChange}/>
                                     <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} /> 
                                     <Grid relaxed centered container columns={2}>
