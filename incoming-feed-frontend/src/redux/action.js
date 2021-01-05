@@ -1,4 +1,12 @@
-import { FETCH_ARTICLES, FETCH_FAVORITE_ARTICLES, ADD_FAVORITE_ARTICLES, DELETE_FAVORITE_ARTICLES, UPDATE_REVIEW_IN_FAVORITE_ARTICLES, FETCH_CATEGORY_CHOICES, FETCH_USERS, LOGIN, LOGOUT, USER_LOGGED_IN} from './actionTypes'
+import { FETCH_ARTICLES, 
+  FETCH_FAVORITE_ARTICLES, 
+  ADD_FAVORITE_ARTICLES, 
+  DELETE_FAVORITE_ARTICLES, 
+  UPDATE_REVIEW_IN_FAVORITE_ARTICLES, 
+  FETCH_CATEGORY_CHOICES, 
+  LOGIN, 
+  LOGOUT, 
+  USER_LOGGED_IN} from './actionTypes'
 
 export function getArticleFromApi() {
   return function(dispatch){
@@ -54,6 +62,7 @@ export function addingFavoriteArticle(articleObj) {
 }
 
 export function deleteFavoriteArticle (favArt) {
+  
   const token = localStorage.getItem('token')
 
   return function(dispatch){
@@ -72,6 +81,7 @@ export function updateReview (review, id) {
   return function(dispatch) {
 
     const token = localStorage.getItem('token')
+
     fetch(`http://localhost:3000/api/v1/favorite_articles/${id}`, {
       method: "PATCH",
       headers: {
@@ -100,14 +110,6 @@ export function fetchCategoryChoice () {
   }
 }
 
-export function fetchUsers() {
-  return function(dispatch) {
-    fetch("http://localhost:3000/api/v1/users")
-    .then(r => r.json())
-    .then(data => { dispatch({type: FETCH_USERS, payload: data}) })
-  }
-}
-
 export function loginAction(userInfo){
 
   return function(dispatch) {
@@ -124,20 +126,15 @@ export function loginAction(userInfo){
     })
     .then(r=>r.json())
     .then(data => {
-      if (data.message){
-        alert("Username and/or password is incorrect")
-      } else {
-        localStorage.setItem("token", data.jwt)
-        dispatch({type: LOGIN, payload: data.user})
-      }
+      localStorage.setItem("token", data.jwt)
+      dispatch({type: LOGIN, payload: data.user})
     })
   }
 }
 
-  export const logoutAction = ()=>{
-    return {type: LOGOUT}
-  }
-
+export const logoutAction = ()=>{
+  return {type: LOGOUT}
+}
 
 export const userLoggedIn = () =>{
   return (dispatch) => {

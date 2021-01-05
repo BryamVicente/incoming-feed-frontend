@@ -22,7 +22,6 @@ class EditReviewForm extends Component {
     }
 
     render() {
-        console.log(this.props.favArt.review)
         return (
             <form onSubmit={this.localSubmitHandler}>
                 <input type="type" name="review" value={this.state.review} onChange={this.onChangeHandler}/>

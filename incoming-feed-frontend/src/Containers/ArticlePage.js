@@ -5,18 +5,12 @@ import Logo from '../Components/Logo'
 import Login from '../Auth/Login'
 import Signup from '../Auth/Signup'
 import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
-import {  Icon, Button, Menu} from 'semantic-ui-react'
+import { Menu} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getFavoriteArticleFromApi, userLoggedIn } from '../redux/action'
 import Profile from '../Containers/Profile'
 
-
 class ArticlePage extends Component {
-
-    // state = {
-    //     user: {},
-    //     current_user_id: 1
-    // }
 
     componentDidMount = () => {
         this.props.fetchFavoriteArticles()
@@ -30,14 +24,13 @@ class ArticlePage extends Component {
     }
  
     render() {
-        console.log(this.props.currentUser)
         return (
             <>
                 <Logo/>    
-                    <Menu className="nav-links" pointing secondary>
+                <Menu className="nav-links" pointing secondary>
 
-                        <Menu.Menu position='right'>
-                            {localStorage.getItem('token') ?
+                    <Menu.Menu position='right'>
+                        {localStorage.getItem('token') ?
                             <>
                                 <Menu.Item children={<button className='logout' onClick={this.logOutHandler}>Log Out</button>} />
                                 <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
@@ -50,8 +43,8 @@ class ArticlePage extends Component {
                                 <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
                             </>
                         }
-                        </Menu.Menu>
-                    </Menu>
+                    </Menu.Menu>
+                </Menu>
 
                 <Switch>
                     <Route path="/signup" render={()=> <Signup   />} />

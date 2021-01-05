@@ -33,6 +33,7 @@ class ProfileInfo extends Component {
                         </div>
 
                         <h3> Interests</h3>
+                        
                         <ul>
                             {this.renderInterests()}
                         </ul>

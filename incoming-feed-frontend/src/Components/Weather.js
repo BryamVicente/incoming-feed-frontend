@@ -1,6 +1,5 @@
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
-
 const Weather = () => {
 
   const { data, isLoading, errorMessage } = useOpenWeather({
@@ -31,7 +30,6 @@ const Weather = () => {
     forecastIconColor:  '#4BC4F7',
   };
 
-  console.log(data)
   return (
     <ReactWeather
       

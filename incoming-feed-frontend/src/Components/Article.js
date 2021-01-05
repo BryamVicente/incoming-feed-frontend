@@ -10,7 +10,6 @@ import { Card, CardGroup} from 'react-bootstrap';
 
     state = {
         flipped: false,
-        
     }
 
     addToFavoriteHandler = () => {
@@ -28,8 +27,9 @@ import { Card, CardGroup} from 'react-bootstrap';
 
                     <Card.Body>
                         <Card.Title>{this.props.article.title}</Card.Title>
+                        
                         <Card.Text>
-                        <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+                            <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
                         </Card.Text>
                     </Card.Body>
 

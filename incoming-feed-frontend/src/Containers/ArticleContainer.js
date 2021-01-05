@@ -6,15 +6,13 @@ import { connect } from 'react-redux'
 import { getArticleFromApi } from '../redux/action'
 import { Route, Switch } from 'react-router-dom'
 import ArticleInfo from '../Components/ArticleInfo'
-import {Grid, Advertisement } from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
 import Weather from '../Components/Weather'
 
 class ArticleContainer extends Component {
     state = {
         searchValue: "",
-        selectedCategory: "",
-        currentPage: 1, 
-        articlesPerPage: 15
+        selectedCategory: ""
     }
 
     componentDidMount = () => {
@@ -39,16 +37,12 @@ class ArticleContainer extends Component {
     }
 
     render() {
-        // let indexOfLastArticle = this.state.currentPage * this.state.articlesPerPage
-        // let indexOfFirstArticle = indexOfLastArticle - this.state.articlesPerPage
-        // let currentArticles = this.props.articles.slice(indexOfFirstArticle, indexOfLastArticle)
-        // const classes = useStyles()
         return (
             <>
-            
                 { this.props.articles.length === 0 ? 
 
                     <h1 className="loading"> Loading Articles...</h1>
+
                     :
                     <>
                         <Switch>

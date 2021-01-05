@@ -9,6 +9,9 @@ class Signup extends React.Component {
         name: "",
         username: "",
         email: "",
+        interest1: "",
+        interest2: "",
+        interest3: "",
         password1: "",
         password2: ""
     }
@@ -32,6 +35,21 @@ class Signup extends React.Component {
                 </Form.Field>
 
                 <Form.Field>
+                    <label>Interest 1</label>
+                    <input type="text" placeholder="first interest..." name="interest1" value={this.state.interest1} onChange={this.onChangeHandler}/>
+                </Form.Field>
+
+                <Form.Field>
+                    <label>Interest 2</label>
+                    <input type="text" placeholder="second interest..." name="interest2" value={this.state.interest2} onChange={this.onChangeHandler}/>
+                </Form.Field>
+
+                <Form.Field>
+                    <label>Interest 3</label>
+                    <input type="text" placeholder="third interest" name="interest3" value={this.state.interest3} onChange={this.onChangeHandler}/>
+                </Form.Field>
+
+                <Form.Field>
                     <label>Email</label>
                     <input type="text" placeholder="enter email..." name="email" value={this.state.email} onChange={this.onChangeHandler}/>
                 </Form.Field>
@@ -45,14 +63,13 @@ class Signup extends React.Component {
                     <label>Password Confirmation</label>
                     <input type="password" placeholder="confirm password" name="password" value={this.state.password} onChange={this.onChangeHandler}/>
                 </Form.Field>
+
                 <Link to="/articles">
                     <Button color="black">
                         <p>Signup!</p>
                     </Button>
                 </Link>
-
             </Form>
-            
         )
     }
 }

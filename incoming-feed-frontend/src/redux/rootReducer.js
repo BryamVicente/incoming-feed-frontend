@@ -4,18 +4,8 @@ const defaultState = {
     articles: [],
     favoriteArticles: [],
     category_choices: [],
-    currentUser: {}
+    currentUser: {currentUser: null}
 }
-
-// function userReducer(state = defaultState.users, action) {
-//     switch (action.type) {
-//         case "FETCH_USERS":
-//             return action.payload
-//         default: 
-//             return state
-//     }
-// }
-
 
 function articleReducer( state = defaultState.articles, action) {
     switch (action.type) {
@@ -58,13 +48,9 @@ function currentUserReducer(state = defaultState.currentUser, action) {
         case "USER_LOGGED_IN":
             return action.payload
         case "LOGIN":
-            // debugger
             return action.payload
-        // case "SIGNUP":
-        //     // debugger
-        //     return action.payload
         case "LOGOUT":
-            return {}
+            return {currentUser: null}
         default:
             return state
     }

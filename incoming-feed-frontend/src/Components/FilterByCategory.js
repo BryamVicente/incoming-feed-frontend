@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { fetchCategoryChoice } from '../redux/action'
 
 class FilterByCategory extends Component {
