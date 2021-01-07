@@ -25,26 +25,18 @@ class ArticlePage extends Component {
  
     render() {
         const navLinks = {
-            
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "calc(5px + 2vmin)",
+            fontSize: "20px",
             background: "#101821"
-    
-          }
+        }
+       
         return (
             <>
-                {/* <Logo/>     */}
-                <Menu className="nav-links" pointing 
-                // style={{"background":"#101821"}}
-                style={navLinks}
-                >
+                <Menu className="nav-links" pointing style={navLinks}>
 
-                    <Menu.Menu 
-                    // position='right'
-                    >
+                    <Menu.Menu >
                         <img alt="logo"className="nice-logo" src="./Logo.png"/>
-                        {/* <Image floated='left' src="./Logo.png" /> */}
                         {localStorage.getItem('token') ?
                             <>
                                 <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
@@ -54,8 +46,8 @@ class ArticlePage extends Component {
                             </>
                             :
                             <>
-                                <Menu.Item children={ <NavLink to="/login" className="login-link">Log In</NavLink> } />
-                                <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} />
+                                <Menu.Item children={ <NavLink to="/login" className="login-link">Login</NavLink> } />
+                                {/* <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} /> */}
                             </>
                         }
                     </Menu.Menu>

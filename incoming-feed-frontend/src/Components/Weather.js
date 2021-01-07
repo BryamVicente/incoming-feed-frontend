@@ -19,7 +19,7 @@ const Weather = () => {
     todayTempFontColor:  '#FFF',
     todayDateFontColor:  '#B5DEF4',
     todayRangeFontColor:  '#B5DEF4',
-    todayDescFontColor:  '#B5DEF4',
+    todayDescFontColor:  'rgb(1, 129, 194)',
     todayInfoFontColor:  '#B5DEF4',
     todayIconColor:  '#FFF',
     forecastBackgroundColor:  '#FFF',
@@ -32,7 +32,7 @@ const Weather = () => {
 
   return (
     <ReactWeather
-      
+
       theme={customStyles}
       isLoading={isLoading}
       errorMessage={errorMessage}
