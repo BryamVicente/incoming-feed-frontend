@@ -22,6 +22,11 @@ import { Card, CardGroup} from 'react-bootstrap';
             color: 'white',
             fontWeight: 'bold'
         }
+
+        const buttonStyles = {
+            backgroundColor: "#f9d815",
+            color: "#1c2331"
+        }
         return (
             <CardGroup>
                 <Card>
@@ -39,7 +44,9 @@ import { Card, CardGroup} from 'react-bootstrap';
 
                     <Card.Footer>
                         <Button onClick={this.addToFavoriteHandler} 
-                        color="yellow" 
+                        // color="yellow" 
+                        // style={{"background-color": "#f9d815"}}
+                        style={buttonStyles}
                         icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
                     </Card.Footer>
                 </Card>

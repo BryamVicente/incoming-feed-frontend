@@ -22,13 +22,13 @@ class ArticleInfo extends Component {
                     <Image  size='big' centered  alt="article" src={this.props.article.urlToImage}/>    
 
                     <div className="article-info-content">
-                        <h2> Title: {this.props.article.title}</h2>
+                        <h2 className="title"> Title: {this.props.article.title}</h2>
 
                         <span className='cinema'> Author: {this.props.article.author}</span>
                         <br></br>
                         {/* <label className="desc-tag">Content: </label> */}
 
-                        <h3>Content: {this.props.article.content}</h3>
+                        <h3 className="content">Content: {this.props.article.content}</h3>
                         <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
                         <Button onClick={this.addToFavHandler} color="yellow" icon="star" content={this.state.switch ? "In Fav!" : "Add to Favs!"}/>
                     </div>

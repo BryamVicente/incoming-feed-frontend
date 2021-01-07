@@ -43,7 +43,7 @@ class ArticlePage extends Component {
                     <Menu.Menu 
                     // position='right'
                     >
-                        <img className="nice-logo" src="./Logo.png"/>
+                        <img alt="logo"className="nice-logo" src="./Logo.png"/>
                         {/* <Image floated='left' src="./Logo.png" /> */}
                         {localStorage.getItem('token') ?
                             <>

@@ -29,12 +29,32 @@ class ProfileInfo extends Component {
                     <h2>Loading!!!</h2>
                     :
                     <>
-                     <Card
-                        image={this.props.currentUser.image}
-                        header={this.props.currentUser.username}
-                        meta={this.props.currentUser.name}
-                        description={this.renderInterests()}
-                    />
+                        {/* <Card
+                            centered
+                            image={this.props.currentUser.image}
+                            header={this.props.currentUser.username}
+                            meta={this.props.currentUser.name}
+                            description={this.renderInterests()}
+                        /> */}
+
+                        <Card centered>
+                            <Image src={this.props.currentUser.image} wrapped ui={false} />
+                            <Card.Content>
+                            <Card.Header>Username: {this.props.currentUser.username}</Card.Header>
+                            <Card.Meta>
+                                <span className='date'>Name: {this.props.currentUser.name}</span>
+                            </Card.Meta>
+                            <Card.Description>
+                                Interersts: {this.renderInterests()}
+                            </Card.Description>
+                            </Card.Content>
+                            {/* <Card.Content extra>
+                            <a>
+                                <Icon name='user' />
+                                22 Friends
+                            </a>
+                            </Card.Content> */}
+                        </Card>
                         {/* <Image size='large' className="profile-pic" centered circular alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
 
                         <div className= 'profile-info-content' >

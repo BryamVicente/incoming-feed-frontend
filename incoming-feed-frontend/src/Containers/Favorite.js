@@ -19,7 +19,9 @@ class Favorite extends Component {
                                 {localStorage.getItem('token') ? 
 
                                     <div> 
+                                        <br></br>
                                         <h2 className="favorite-header"> Favorites</h2>
+                                        <br></br>
                                         {this.renderFavoriteArticles()}
                                     </div>
                                 :

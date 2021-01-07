@@ -19,6 +19,10 @@ class FavoriteArticle extends React.Component {
   }
 
   render(){
+    const buttonStyles = {
+      backgroundColor: "#f9d815",
+      color: "#1c2331"
+  }
     return (
       <Item.Group  >
         <Item >
@@ -39,7 +43,7 @@ class FavoriteArticle extends React.Component {
 
               <Button onClick={this.handleForm} content="Leave Note" color="blue" />
                 {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
-              <Button floated='left' color="red" content="Delete!" onClick={this.localDeleteHandler}/>
+              <Button floated='left' style={buttonStyles} content="Delete!" onClick={this.localDeleteHandler}/>
             </Item.Extra>
           </Item.Content>
         </Item>
