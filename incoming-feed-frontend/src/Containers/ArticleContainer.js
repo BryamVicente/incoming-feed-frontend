@@ -54,10 +54,13 @@ class ArticleContainer extends Component {
 
                             <Route path="/articles" render={() => (
                                 <>
+                                    <br></br>
+                                    <br></br>
                                     <Weather />
+                                    <br></br>
                                     <FilterByCategory categoryOnChange={this.categoryOnChange}/>
                                     <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} /> 
-                                    <Grid relaxed centered container columns={2}>
+                                    <Grid relaxed centered container columns={3}>
                                         {this.renderArticles()}
                                     </Grid>
                                 </>

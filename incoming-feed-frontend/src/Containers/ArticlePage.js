@@ -5,7 +5,7 @@ import Logo from '../Components/Logo'
 import Login from '../Auth/Login'
 import Signup from '../Auth/Signup'
 import { NavLink, Route, Switch, withRouter } from 'react-router-dom'
-import { Menu} from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getFavoriteArticleFromApi, userLoggedIn } from '../redux/action'
 import Profile from '../Containers/Profile'
@@ -24,18 +24,33 @@ class ArticlePage extends Component {
     }
  
     render() {
+        const navLinks = {
+            
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "calc(5px + 2vmin)",
+            background: "#101821"
+    
+          }
         return (
             <>
-                <Logo/>    
-                <Menu className="nav-links" pointing secondary>
+                {/* <Logo/>     */}
+                <Menu className="nav-links" pointing 
+                // style={{"background":"#101821"}}
+                style={navLinks}
+                >
 
-                    <Menu.Menu position='right'>
+                    <Menu.Menu 
+                    // position='right'
+                    >
+                        <img className="nice-logo" src="./Logo.png"/>
+                        {/* <Image floated='left' src="./Logo.png" /> */}
                         {localStorage.getItem('token') ?
                             <>
-                                <Menu.Item children={<button className='logout' onClick={this.logOutHandler}>Log Out</button>} />
                                 <Menu.Item children={ <NavLink to="/articles" className="articles-link">Home</NavLink>}/>
-                                <Menu.Item children={ <NavLink to="/profile" className="profile-link">Profile</NavLink>}/>
                                 <Menu.Item children={ <NavLink to="/favorites" className="favorites-link">Favorites</NavLink>}/>
+                                <Menu.Item children={ <NavLink to="/profile" className="profile-link">Profile</NavLink>}/>
+                                <Menu.Item children={<button className='logout' onClick={this.logOutHandler}>Log Out</button>} />
                             </>
                             :
                             <>

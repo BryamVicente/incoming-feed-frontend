@@ -36,23 +36,26 @@ class Login extends React.Component {
     render(){
         console.log(this.props.currentUser, localStorage.getItem('token'))
         return (
+            <div className="form-div">
+                <h3>Login</h3>
+                <Form style={{"color":"white"}}onSubmit={this.loginHandler} className="the-form"  >
+                {/* {} */}
+                    <Form.Field  inline className="login-form-1">
+                        <label>Username</label>
+                        <input type="text" placeholder="enter username..." name="username" value={this.state.username} onChange={this.onChangeHandler}/>
+                    </Form.Field>
 
-            <Form onSubmit={this.loginHandler} >
-               {/* {} */}
-                <Form.Field>
-                    <label>Username</label>
-                    <input type="text" placeholder="enter username..." name="username" value={this.state.username} onChange={this.onChangeHandler}/>
-                </Form.Field>
+                    <Form.Field inline className="login-form-2">
+                        <label>Password</label>
+                        <input type="password" placeholder="enter password" name="password" value={this.state.password} onChange={this.onChangeHandler}/>
+                    </Form.Field>
 
-                <Form.Field>
-                    <label>Password</label>
-                    <input type="password" placeholder="enter password" name="password" value={this.state.password} onChange={this.onChangeHandler}/>
-                </Form.Field>
-
-                <Button color="black">
-                        <p>Login!</p>
+                    <Button color="black">
+                            <p>Login!</p>
                     </Button>
-            </Form>
+                </Form>
+
+            </div>
         )
     }
 }
@@ -67,3 +70,34 @@ const mapStateToProps = (state) => {
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+
+
+
+{/* <Segment placeholder>
+    <Grid columns={2} relaxed='very' stackable>
+      <Grid.Column>
+        <Form>
+          <Form.Input
+            icon='user'
+            iconPosition='left'
+            label='Username'
+            placeholder='Username'
+          />
+          <Form.Input
+            icon='lock'
+            iconPosition='left'
+            label='Password'
+            type='password'
+          />
+
+          <Button content='Login' primary />
+        </Form>
+      </Grid.Column>
+
+      <Grid.Column verticalAlign='middle'>
+        <Button content='Sign up' icon='signup' size='big' />
+      </Grid.Column>
+    </Grid>
+
+    <Divider vertical>Or</Divider>
+  </Segment> */}

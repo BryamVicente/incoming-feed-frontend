@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCategoryChoice } from '../redux/action'
+import { Dropdown, Menu } from 'semantic-ui-react'
 
 class FilterByCategory extends Component {
 

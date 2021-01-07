@@ -20,24 +20,24 @@ class FavoriteArticle extends React.Component {
 
   render(){
     return (
-      <Item.Group>
-        <Item>
+      <Item.Group  >
+        <Item >
           <Item.Image src={this.props.favArt.article.urlToImage}/>
 
           <Item.Content>
-            <Item.Header as='a'>{this.props.favArt.article.title}</Item.Header>
+            <Item.Header style={{"color": "white"}} as='a'>{this.props.favArt.article.title}</Item.Header>
 
-            <Item.Meta>
+            <Item.Meta style={{"color": "white"}}>
               <span className='cinema'>{this.props.favArt.article.author}</span>
             </Item.Meta>
 
-            <Item.Description>{this.props.favArt.article.description}</Item.Description>
+            <Item.Description style={{"color": "white"}}>{this.props.favArt.article.description}</Item.Description>
             <Item.Extra>
               <div className="detail"><a href={this.props.favArt.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
 
-              <h3>Review: {this.props.favArt.review}</h3>
+              <h3 style={{"color": "#3f729b"}}>Note: {this.props.favArt.review}</h3>
 
-              <Button onClick={this.handleForm} content="Leave Review" color="blue" />
+              <Button onClick={this.handleForm} content="Leave Note" color="blue" />
                 {this.state.display ? <EditReviewForm favArt={this.props.favArt} editReviewHandler={this.props.editReviewHandler} /> : null}
               <Button floated='left' color="red" content="Delete!" onClick={this.localDeleteHandler}/>
             </Item.Extra>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
-import {  Icon, Image, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addingFavoriteArticle } from '../redux/action'
 import { Card, CardGroup} from 'react-bootstrap';
@@ -18,6 +18,10 @@ import { Card, CardGroup} from 'react-bootstrap';
     }
 
     render(){
+        const styles = {
+            color: 'white',
+            fontWeight: 'bold'
+        }
         return (
             <CardGroup>
                 <Card>
@@ -26,7 +30,7 @@ import { Card, CardGroup} from 'react-bootstrap';
                     </NavLink>
 
                     <Card.Body>
-                        <Card.Title>{this.props.article.title}</Card.Title>
+                        <Card.Title style={styles} >{this.props.article.title}</Card.Title>
                         
                         <Card.Text>
                             <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
@@ -34,7 +38,9 @@ import { Card, CardGroup} from 'react-bootstrap';
                     </Card.Body>
 
                     <Card.Footer>
-                        <Button onClick={this.addToFavoriteHandler} color="blue" icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
+                        <Button onClick={this.addToFavoriteHandler} 
+                        color="yellow" 
+                        icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
                     </Card.Footer>
                 </Card>
             </CardGroup>

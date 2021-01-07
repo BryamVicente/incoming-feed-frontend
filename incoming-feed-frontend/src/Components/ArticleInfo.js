@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Item, Button, Icon } from 'semantic-ui-react'
+import { Button, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addingFavoriteArticle } from '../redux/action'
 
@@ -15,30 +15,25 @@ class ArticleInfo extends Component {
     }
 
     render() {
+        
         return (
             <>
-                <div className="article-info-cont">
-                    <img alt="article" src={this.props.article.urlToImage} />
+                <div className="wrapper">
+                    <Image  size='big' centered  alt="article" src={this.props.article.urlToImage}/>    
 
-                    <div>
+                    <div className="article-info-content">
                         <h2> Title: {this.props.article.title}</h2>
 
-                        <div>
-                            <span className='cinema'> Author: {this.props.article.author}</span>
-                        </div>
+                        <span className='cinema'> Author: {this.props.article.author}</span>
+                        <br></br>
+                        {/* <label className="desc-tag">Content: </label> */}
 
-                        <label className="desc-tag">Content: </label>
+                        <h3>Content: {this.props.article.content}</h3>
+                        <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
+                        <Button onClick={this.addToFavHandler} color="yellow" icon="star" content={this.state.switch ? "In Fav!" : "Add to Favs!"}/>
+                    </div>
 
-                        <h3>{this.props.article.content}</h3>
-
-                        <div>
-                            <Button onClick={this.addToFavHandler} >
-                                {this.state.switch ? "In Fav!" : "Add to Favs!"}
-                            </Button>
-
-                            <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
-
-                        </div>
+                    <div>
                     </div>
                 </div>
             </>

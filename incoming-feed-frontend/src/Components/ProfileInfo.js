@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { userLoggedIn } from '../redux/action'
+import { Button, Image, Card } from 'semantic-ui-react'
 
 class ProfileInfo extends Component {
 
@@ -12,9 +13,11 @@ class ProfileInfo extends Component {
         return this.props.currentUser.interests.map(interest => {
             console.log(interest)
             return(
-                <>
-                    <li>{interest.topic}</li>
-                </>
+                <div className="list-centered">
+                    <ul >
+                        <li>{interest.topic}</li>
+                    </ul>
+                </div>
             )
         })
     }
@@ -26,21 +29,33 @@ class ProfileInfo extends Component {
                     <h2>Loading!!!</h2>
                     :
                     <>
-                        <img className="profile-pic" alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
+                     <Card
+                        image={this.props.currentUser.image}
+                        header={this.props.currentUser.username}
+                        meta={this.props.currentUser.name}
+                        description={this.renderInterests()}
+                    />
+                        {/* <Image size='large' className="profile-pic" centered circular alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
 
-                        <div>
-                            <h3> Name: {this.props.currentUser.username}</h3>
-                        </div>
+                        <div className= 'profile-info-content' >
+                            <h3> Username: {this.props.currentUser.username}</h3>
+                            <h3>Name: {this.props.currentUser.name}</h3>
+                            <h3> Interests:</h3>
+                                {this.renderInterests()}
+                        </div> */}
 
-                        <h3> Interests</h3>
-                        
-                        <ul>
-                            {this.renderInterests()}
-                        </ul>
                     </>
                 }
             </>
         )
+
+//         <Card
+//     image='/images/avatar/large/elliot.jpg'
+//     header='Elliot Baker'
+//     meta='Friend'
+//     description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+//     extra={extra}
+//   />
     }
 }
 
