@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { userLoggedIn } from '../redux/action'
-import { Button, Image, Card } from 'semantic-ui-react'
+import { Image, Card } from 'semantic-ui-react'
 
 class ProfileInfo extends Component {
 
@@ -29,13 +29,6 @@ class ProfileInfo extends Component {
                     <h2>Loading!!!</h2>
                     :
                     <>
-                        {/* <Card
-                            centered
-                            image={this.props.currentUser.image}
-                            header={this.props.currentUser.username}
-                            meta={this.props.currentUser.name}
-                            description={this.renderInterests()}
-                        /> */}
 
                         <Card centered>
                             <Image src={this.props.currentUser.image} wrapped ui={false} />
@@ -48,34 +41,11 @@ class ProfileInfo extends Component {
                                 Interersts: {this.renderInterests()}
                             </Card.Description>
                             </Card.Content>
-                            {/* <Card.Content extra>
-                            <a>
-                                <Icon name='user' />
-                                22 Friends
-                            </a>
-                            </Card.Content> */}
                         </Card>
-                        {/* <Image size='large' className="profile-pic" centered circular alt={this.props.currentUser.name} src={this.props.currentUser.image}/>
-
-                        <div className= 'profile-info-content' >
-                            <h3> Username: {this.props.currentUser.username}</h3>
-                            <h3>Name: {this.props.currentUser.name}</h3>
-                            <h3> Interests:</h3>
-                                {this.renderInterests()}
-                        </div> */}
-
                     </>
                 }
             </>
         )
-
-//         <Card
-//     image='/images/avatar/large/elliot.jpg'
-//     header='Elliot Baker'
-//     meta='Friend'
-//     description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-//     extra={extra}
-//   />
     }
 }
 

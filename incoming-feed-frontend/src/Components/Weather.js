@@ -19,7 +19,7 @@ const Weather = () => {
     todayTempFontColor:  '#FFF',
     todayDateFontColor:  '#B5DEF4',
     todayRangeFontColor:  '#B5DEF4',
-    todayDescFontColor:  'rgb(1, 129, 194)',
+    todayDescFontColor:  'rgb(4, 167, 249)',
     todayInfoFontColor:  '#B5DEF4',
     todayIconColor:  '#FFF',
     forecastBackgroundColor:  '#FFF',
