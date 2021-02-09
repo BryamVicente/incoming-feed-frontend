@@ -5,11 +5,14 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 class Favorite extends Component {
 
+    // This function iterates through the favoriteArticles array and renders whatever is there!
     renderFavoriteArticles = () => { 
         return this.props.favoriteArticles.map(favArt => <FavoriteArticle key={favArt.id} editReviewHandler={this.props.editReviewHandler} favArt={favArt} deleteFavoriteArticletHandler={this.props.deleteFavoriteArticletHandler} />)
     }
 
+    // This render function shows the articles that I favorited and can only view of the user is signed in!
     render() {
+        console.log(this.props)
         return (
             <>
                 <Switch>

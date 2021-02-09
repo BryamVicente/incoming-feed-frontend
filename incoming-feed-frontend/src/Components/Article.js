@@ -12,6 +12,7 @@ import { Card, CardGroup} from 'react-bootstrap';
         flipped: false,
     }
 
+    // This function is responsible for adding articles to list of favorites via POST request
     addToFavoriteHandler = () => {
         this.setState({ flipped: true })
         this.props.addToFavs(this.props.article)
@@ -44,8 +45,6 @@ import { Card, CardGroup} from 'react-bootstrap';
 
                     <Card.Footer>
                         <Button onClick={this.addToFavoriteHandler} 
-                        // color="yellow" 
-                        // style={{"background-color": "#f9d815"}}
                         style={buttonStyles}
                         icon="star" content={this.state.flipped ? "Added!" : "Add to Favs!"} />
                     </Card.Footer>
