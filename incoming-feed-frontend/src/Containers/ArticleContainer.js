@@ -15,19 +15,23 @@ class ArticleContainer extends Component {
         selectedCategory: ""
     }
 
+    // GET request to /articles 
     componentDidMount = () => {
         this.props.fetchArticles()
     }
 
+    // This function is filtering the articles by their category 
     filteredArticlesByCategory = () => {
         return this.props.articles.filter(articles_obj => articles_obj.category_choice.name.includes(this.state.selectedCategory))
     }
 
+    // This function is rendering all of the articles 
     renderArticles = () => {
         let filteredArray = this.filteredArticlesByCategory().filter(obj => obj.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(article => <Grid.Column key={article.id}><Article key={article.id} article={article} favoriteClickHandler={this.props.favoriteClickHandler} /></Grid.Column>)
     }
 
+    // This function allows the user to search an artcle by its title
     searchHandler = (e) => {
         this.setState({ searchValue: e.target.value})
     }
@@ -42,7 +46,6 @@ class ArticleContainer extends Component {
                 { this.props.articles.length === 0 ? 
 
                     <h1 className="loading"> Loading Articles...</h1>
-
                     :
                     <>
                         <Switch>

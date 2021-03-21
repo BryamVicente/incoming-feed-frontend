@@ -47,7 +47,6 @@ class ArticlePage extends Component {
                             :
                             <>
                                 <Menu.Item children={ <NavLink to="/login" className="login-link">Login</NavLink> } />
-                                {/* <Menu.Item children={ <NavLink to="/signup" className="signup-link">Sign up</NavLink>} /> */}
                             </>
                         }
                     </Menu.Menu>
