@@ -4,11 +4,12 @@ import { userLoggedIn } from '../redux/action'
 import { Image, Card } from 'semantic-ui-react'
 
 class ProfileInfo extends Component {
-
+    // Making a GET request 
      componentDidMount = () => {
         this.props.getUser()
     }
 
+    // This function is rendering all of the user's interersts 
     renderInterests = () => {
         return this.props.currentUser.interests.map(interest => {
             console.log(interest)
@@ -29,7 +30,6 @@ class ProfileInfo extends Component {
                     <h2>Loading!!!</h2>
                     :
                     <>
-
                         <Card centered>
                             <Image src={this.props.currentUser.image} wrapped ui={false} />
                             <Card.Content>

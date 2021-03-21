@@ -1,5 +1,6 @@
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
+// I got this from the npm documention! 
 const Weather = () => {
 
   const { data, isLoading, errorMessage } = useOpenWeather({
@@ -32,7 +33,6 @@ const Weather = () => {
 
   return (
     <ReactWeather
-
       theme={customStyles}
       isLoading={isLoading}
       errorMessage={errorMessage}
