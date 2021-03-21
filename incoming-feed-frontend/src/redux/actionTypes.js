@@ -1,3 +1,5 @@
+// I prefer to keep my action types separated in their own file because it keeps my code more organized
+
 export const FETCH_ARTICLES = "FETCH_ARTICLES"
 export const FETCH_FAVORITE_ARTICLES = "FETCH_FAVORITE_ARTICLES"
 export const ADD_FAVORITE_ARTICLES = "ADD_FAVORITE_ARTICLES"

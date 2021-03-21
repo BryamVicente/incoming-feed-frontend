@@ -17,6 +17,7 @@ class ArticlePage extends Component {
         this.props.getTheProfile()
     }
 
+    // This function allows the user to logout 
     logOutHandler = (e) => {
         e.preventDefault()
         localStorage.removeItem('token')
