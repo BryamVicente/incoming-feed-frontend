@@ -5,10 +5,12 @@ import { Dropdown, Menu } from 'semantic-ui-react'
 
 class FilterByCategory extends Component {
 
+    // Makes GET fetch request
     componentDidMount = () => {
         this.props.fetchCategories()
     }
 
+    // This function is rendering all of the categories for each article
     renderArticleCategory = () => {
         return this.props.category_choices.map(category => <option key={category.id} value={category.name}> {category.name}</option>)
     }

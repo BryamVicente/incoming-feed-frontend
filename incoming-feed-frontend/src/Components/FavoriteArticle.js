@@ -10,10 +10,12 @@ class FavoriteArticle extends React.Component {
     display: false,
   }
 
+  // This function deletes the Articles from the Favorite's list
   localDeleteHandler = () => {
     this.props.deleteFavoriteArt(this.props.favArt)
   }
 
+  // This function changes the text on the edit Review Button
   handleForm = () => {
     this.setState({display: !this.state.display})
   }
