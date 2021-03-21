@@ -16,6 +16,7 @@ class Signup extends React.Component {
         password2: ""
     }
 
+    // This function is making sure that the form is dynamic
     onChangeHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }

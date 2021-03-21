@@ -22,9 +22,9 @@ class FavoriteArticle extends React.Component {
     const buttonStyles = {
       backgroundColor: "#f9d815",
       color: "#1c2331"
-  }
+    }
     return (
-      <Item.Group  >
+      <Item.Group>
         <Item >
           <Item.Image src={this.props.favArt.article.urlToImage}/>
 

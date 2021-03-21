@@ -36,7 +36,7 @@ class Login extends React.Component {
         }
     }
 
-    // Redirects to the signUp page
+    // This functions redirects the user to the signUp page
     takeMeToSignup = () => {
         return this.props.history.push('/signup')
     }

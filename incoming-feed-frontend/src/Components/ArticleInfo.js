@@ -26,14 +26,10 @@ class ArticleInfo extends Component {
 
                         <span className='cinema'> Author: {this.props.article.author}</span>
                         <br></br>
-                        {/* <label className="desc-tag">Content: </label> */}
 
                         <h3 className="content">Content: {this.props.article.content}</h3>
                         <div className="detail"><a href={this.props.article.url} target='_blank' rel="noreferrer">Click For More Detail</a></div>
                         <Button onClick={this.addToFavHandler} color="yellow" icon="star" content={this.state.switch ? "In Fav!" : "Add to Favs!"}/>
-                    </div>
-
-                    <div>
                     </div>
                 </div>
             </>
