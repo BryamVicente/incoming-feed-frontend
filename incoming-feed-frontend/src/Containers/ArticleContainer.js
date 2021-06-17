@@ -41,6 +41,7 @@ class ArticleContainer extends Component {
     }
 
     render() {
+        console.log("article container: ", this.props)
         return (
             <>
                 { this.props.articles.length === 0 ? 
@@ -87,4 +88,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (ArticleContainer);
+
+
+
+
+
 
