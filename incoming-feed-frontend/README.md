@@ -3,10 +3,8 @@
 *Incoming Feed*, this app will be able to provide the latest top-headline news based on the user's category of choice.
 
 
-![Screenshot](ReadmePic.png)
-
 ## Video Demo
-https://drive.google.com/file/d/1xLXiPpyNCNibhLbQoqs5zpXFFVhwK5NQ/view?usp=sharing
+### [Demo Video](https://youtu.be/7nSYuExPvjk)
 
 
 ## Application Features
