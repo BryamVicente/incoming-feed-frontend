@@ -24,13 +24,13 @@
 - Postgresql
 - ActiveRecord
 - Active Model Serializers
-- NewsApi 
+- NewsApi (https://newsapi.org/docs)
 
 ## Frontend Built With
 - React
 - Redux
 - Semantic UI React
-- React Weather
+- React Weather (https://www.npmjs.com/package/react-open-weather-widget)
 - React Bootstrap
 
 ## Back-End Repository
@@ -51,4 +51,4 @@ https://github.com/BryamVicente/incoming-feed-backend
 - **Bryam Vicente**
 
 ## Acknowledgments
-- Huge Shout out to Annie Zheng & Chase Rabenn!
+- Huge Shout out to my Flatiron School teachers Annie Zheng & Chase Rabenn!
