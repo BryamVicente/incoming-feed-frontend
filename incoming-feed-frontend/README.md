@@ -1,6 +1,6 @@
 # Incoming Feed
 
-*Incoming Feed*, this app will be able to provide the latest top-headline news based on the user's category of choice.
+*Incoming Feed*, Is an app that will be able to provide the latest top-headline news based on the user's category of choice.
 
 
 ## Video Demo
@@ -12,11 +12,11 @@
 
 - User can click on a link that will direct them to the actual page of the specific article.
 
-- User can add an articles to their list of favorites.
+- User can add an article to their list of favorites.
 
-- User can create and update a note only the article has been added to the list of favorites.
+- User can create and update a note only when the article has been added to the list of favorites.
 
-- User can remove articles from favorites list.
+- User can remove articles from the favorites list.
 
 
 ## Backend Built With
